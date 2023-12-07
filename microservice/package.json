@@ -1,0 +1,51 @@
+{
+  "name": "microservice.api",
+  "version": "1.0.0",
+  "description": "GraphQL API",
+  "main": "app.js",
+  "author": "",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon -r dotenv/config --exec babel-node ./src/app.js",
+    "dev:local": "nodemon -r dotenv/config --exec babel-node ./src/app.js dotenv_config_path=./docker/.env",
+    "start": "node ./src/app.js",
+    "build": "rimraf ./dist && babel ./src -d ./dist --copy-files",
+    "clean": "rimraf ./dist",
+    "lint": "prettier --list-different 'src/**/*.js' && eslint 'src/**/*.js'",
+    "lint:fix": "prettier --write 'src/**/*.js' && eslint --fix 'src/**/*.js'"
+  },
+  "dependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/plugin-transform-runtime": "^7.9.6",
+    "apollo-opentracing": "^3.0.38",
+    "apollo-server-core": "^3.12.1",
+    "apollo-server-express": "^3.11.1",
+    "axios": "^1.2.1",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.18.2",
+    "graphql": "^16.6.0",
+    "graphql-resolvers": "^0.4.2",
+    "graphql-subscriptions": "^1.1.0",
+    "graphql-tag": "^2.12.6",
+    "graphql-tools": "^8.3.12"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.19.3",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/register": "^7.10.1",
+    "@types/jest": "^29.2.4",
+    "apollo-server-testing": "^2.25.2",
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "nodemon": "^2.0.2",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.2"
+  }
+}

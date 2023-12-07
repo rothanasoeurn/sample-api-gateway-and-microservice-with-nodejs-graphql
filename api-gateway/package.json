@@ -1,0 +1,63 @@
+{
+  "name": "api-gateway",
+  "version": "1.0.0",
+  "description": "Sample",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon -r dotenv/config --exec babel-node ./src/app.js",
+    "dev:local": "nodemon -r dotenv/config --exec babel-node ./src/app.js dotenv_config_path=.env",
+    "start": "node ./dist/app.js",
+    "build": "rimraf ./dist && babel ./src -d ./dist --copy-files",
+    "clean": "rimraf ./dist",
+    "lint": "prettier --list-different 'src/**/*.js' && eslint 'src/**/*.js'",
+    "lint:fix": "prettier --write 'src/**/*.js' && eslint --fix 'src/**/*.js'"
+  },
+  "repository": {},
+  "keywords": [
+    "API",
+    "Gateway",
+    "GraphQL",
+    "Nodejs"
+  ],
+  "author": "Sample",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/plugin-transform-runtime": "^7.9.6",
+    "@graphql-tools/schema": "^9.0.10",
+    "@graphql-tools/wrap": "^9.2.16",
+    "apollo-opentracing": "^3.0.37",
+    "apollo-server-core": "^3.11.1",
+    "apollo-server-express": "^3.11.1",
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.18.2",
+    "graphql": "^16.6.0",
+    "graphql-resolvers": "^0.4.2",
+    "graphql-tag": "^2.12.6",
+    "graphql-tools": "^8.3.12",
+    "moment": "^2.29.3",
+    "nodemon": "^2.0.2",
+    "rimraf": "^3.0.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.19.3",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/register": "^7.10.1",
+    "@types/jest": "^26.0.7",
+    "apollo-server-testing": "^2.14.3",
+    "body-parser": "^1.19.0",
+    "eslint": "^8.30.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "nyc": "^15.1.0",
+    "prettier": "^2.8.1",
+    "supertest": "^4.0.2"
+  }
+}

@@ -1,0 +1,9 @@
+FROM docker-registry.sabay.com/docker/node:alpine-release
+
+COPY ./ ${APP_DIR}
+
+# install node libs
+RUN npm install --legacy-peer-deps
+
+EXPOSE 3000
+CMD ["npm","run", "dev"]

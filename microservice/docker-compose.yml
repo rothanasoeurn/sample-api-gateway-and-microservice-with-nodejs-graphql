@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  # traefik:
+  #   image: traefik:v2.10
+  #   container_name: traefik-app
+  #   command:
+  #     - "--api.insecure=true"
+  #     - "--entrypoints.web.address=:80"
+  #     - "--providers.docker=true"
+  #     - "--providers.docker.exposedbydefault=false"
+  #     - "--log.level=DEBUG"
+  #   ports:
+  #     - "80:80"
+  #     - "8080:8080"
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #   labels:
+  #     - traefik.enable=false
+  #   networks:
+  #     - proxy
+  
+  service1:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.dev
+    container_name: service1.api
+    env_file:
+      - .env
+    # labels:
+    #   - "traefik.enable=true"
+    #   # - "traefik.http.routers.service1.rule=Host(`api.service1.localhost`)"
+    #   - "traefik.http.routers.service1.entrypoints=web"
+    #   - "traefik.http.services.service1.loadbalancer.server.port=3000"
+    #   - "traefik.docker.network=proxy"
+    # # ports:
+    #   - "4000:3000"
+    volumes:
+      - ./src:/home/node/app/src:rw
+    networks:
+      - customer01
+
+networks:
+  customer01:
+    external: true
